@@ -47,8 +47,8 @@ function handleCellClick(event) {
 
 async function getBotMove(board) {
     try {
-        // Make a request to the backend to get the bot's move
-        const response = await fetch('http://127.0.0.1:5000/api/move', {
+        // Use a relative path for the API endpoint
+        const response = await fetch('/api/move', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -91,6 +91,7 @@ async function getBotMove(board) {
         document.getElementById('status').textContent = 'Error getting bot move. Try again.';
     }
 }
+
 
 function disableBoard() {
     cells.forEach(cell => cell.removeEventListener('click', handleCellClick));
