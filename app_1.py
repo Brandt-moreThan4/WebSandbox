@@ -4,9 +4,8 @@ from flask_cors import CORS  # Import the CORS module
 
 
 # from bot_logic import get_bot_move
-from backend.bot_logic import get_bot_move
-# from .backend.bot_logic import get_bot_move
-# from .bot_logic import get_bot_move
+# from backend.bot_logic import get_bot_move
+from .backend.bot_logic import get_bot_move
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes by default
