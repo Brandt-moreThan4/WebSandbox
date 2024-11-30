@@ -2,9 +2,11 @@ import random
 from pathlib import Path
 import sys
 
-
 # PARENT_DIR = Path(__file__).resolve().parent.parent
 # sys.path.append(str(PARENT_DIR))
+
+from ml_mods.player import get_random_move
+
 
 
 def get_bot_move(board) -> int | None:
@@ -21,3 +23,6 @@ def get_bot_move(board) -> int | None:
     else:
         return None  # No moves available (game might be over)
 
+def get_bot_move(board) -> int | None:
+    
+    return get_random_move(board)  # Call the function from the ml_mods package

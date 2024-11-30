@@ -1,6 +1,12 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS  # Import the CORS module
 import time
+
+# Add the parent directory to the path if it isn't there already
+from pathlib import Path
+import sys
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 from backend.bot_logic import get_bot_move  # Adjust import path if necessary
 
 # Initialize the Flask app

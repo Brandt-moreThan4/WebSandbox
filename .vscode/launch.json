@@ -10,8 +10,8 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                // "FLASK_APP": "backend\\app.py",
-                "FLASK_APP": "app_1.py",                
+                "FLASK_APP": "backend\\app.py",
+                // "FLASK_APP": "app_1.py",                
                 "FLASK_DEBUG": "1"
             },
             "args": [
@@ -27,25 +27,25 @@
 
 
 
-// {
-//     // Use IntelliSense to learn about possible attributes.
-//     // Hover to view descriptions of existing attributes.
-//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-//     "version": "0.2.0",
-//     "configurations": [
-//         {
-//             "name": "Python: Current File",
-//             "type": "python",
-//             "request": "launch",
-//             "program": "${file}",
-//             "console": "integratedTerminal",
-//             "justMyCode": true,
-//             "env": {
-//                 "PYTHONPATH": "${workspaceFolder}"
-//               }            
-//             // "env": {
-//             //   "PYDEVD_DISABLE_FILE_VALIDATION": "1"
-//             // }
-//           }
-//     ]
-// }
+// // {
+// //     // Use IntelliSense to learn about possible attributes.
+// //     // Hover to view descriptions of existing attributes.
+// //     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+// //     "version": "0.2.0",
+// //     "configurations": [
+// //         {
+// //             "name": "Python: Current File",
+// //             "type": "python",
+// //             "request": "launch",
+// //             "program": "${file}",
+// //             "console": "integratedTerminal",
+// //             "justMyCode": true,
+// //             "env": {
+// //                 "PYTHONPATH": "${workspaceFolder}"
+// //               }            
+// //             // "env": {
+// //             //   "PYDEVD_DISABLE_FILE_VALIDATION": "1"
+// //             // }
+// //           }
+// //     ]
+// // }
