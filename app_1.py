@@ -1,19 +1,23 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import time
-from flask_cors import CORS  # Import the CORS module
+from backend.bot_logic import get_bot_move
+from dotenv import load_dotenv
+import os
 
+# # Load environment variables from .env file
+# load_dotenv()
 
-# from bot_logic import get_bot_move
-# from backend.bot_logic import get_bot_move
-from .backend.bot_logic import get_bot_move
-
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes by default
-
+# Initialize the Flask app with the correct static folder
+app = Flask(__name__, static_folder='frontend', static_url_path='')
+# CORS(app)
 
 @app.route('/')
-def hello_world():
-    return 'Hello from Flask!'
+def serve_index():
+    """
+    Serve the index.html page from the frontend directory.
+    """
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/move', methods=['POST'])
 def get_move():
@@ -27,16 +31,16 @@ def get_move():
     if board is None:
         return jsonify({"error": "Board state not provided"}), 400
 
-    # Call the function to determine the bot's move
-    col = get_bot_move(board)
+    try:
+        # Call the function to determine the bot's move
+        col = get_bot_move(board)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    # It's unnerving if the bot plays so quickly
-    time.sleep(1)
+    time.sleep(1)  # Simulate human-like delay
 
-    # Return the bot's chosen column as a JSON response
     return jsonify({"column": col})
 
 if __name__ == '__main__':
-
-    app.run(debug=True)
-
+    # Start the Flask app
+    app.run(debug=os.getenv("FLASK_DEBUG") == "1")
